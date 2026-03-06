@@ -348,7 +348,7 @@
     <div class="input-wrap"><label>ТЕКСТ:</label><textarea id="main-text" oninput="update()"></textarea><button class="clear-btn" style="top: 15px;" onclick="document.getElementById('main-text').value=''; update();">×</button></div>
     <div class="input-wrap"><label>КАРТИНКИ (URL с новой строки):</label><textarea id="images-urls" placeholder="По 1 ссылке на строку..." oninput="update()"></textarea><button class="clear-btn" style="top: 15px;" onclick="document.getElementById('images-urls').value=''; update();">×</button></div>
     
-    <button class="action-btn" style="background: #E91E63;" onclick="save()">Копировать ссылку</button>
+    <button class="action-btn" id="btn-copy" style="background: #E91E63;" onclick="copyIframe()">📋 Копировать iframe для Genially</button>
     <button class="action-btn" style="background: #4CAF50; margin-top: 15px;" onclick="testGame()">▶ ТЕСТ ИГРЫ</button>
 </div>
 
@@ -727,6 +727,25 @@
     }
 
     function save() { update(); return window.location.href.split('?')[0] + "?g=" + encodeState(state); }
+    
+    function copyIframe() {
+        let url = save();
+        let iframeCode = `<iframe src="${url}" width="100%" height="600px" style="border:none; border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.5);" allow="autoplay; microphone" allowfullscreen></iframe>`;
+        navigator.clipboard.writeText(iframeCode).then(() => {
+            let btn = document.getElementById('btn-copy');
+            let originalText = btn.innerText;
+            btn.innerText = "✅ КОД СКОПИРОВАН!";
+            btn.style.background = "#2ed573";
+            btn.style.color = "#fff";
+            setTimeout(() => {
+                btn.innerText = originalText;
+                btn.style.background = "#E91E63";
+            }, 2000);
+        }).catch(err => {
+            alert("Не удалось скопировать код: " + err);
+        });
+    }
+
     function testGame() { update(); if(!state.mainText) { alert("Введите текст!"); return; } window.open(save(), '_blank'); }
 
     function resetAudioUI() { isAudioPlaying = false; isAudioPaused = false; document.getElementById('btn-pause').style.display = 'none'; document.getElementById('btn-play').style.display = 'block'; document.getElementById('btn-play').innerText = "▶ Слушать текст"; document.getElementById('l1-text').classList.remove('playing-audio'); if(isGame && currentLevel === 1) document.getElementById('btn-next-l1').style.display = 'block'; }

@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Text Learning Game - 15 Levels Ultimate</title>
-    <link href="https://fonts.googleapis.com/css2?family=Balsamiq+Sans&family=Chewy&family=Comic+Neue:wght@700&family=Comfortaa:wght@700&family=Fredoka:wght@500&family=Itim&family=Nunito:wght@700&family=Patrick+Hand&family=Quicksand:wght@700&family=Varela+Round&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Acme&family=Amatic+SC:wght@700&family=Balsamiq+Sans&family=Caveat:wght@700&family=Chewy&family=Comic+Neue:wght@700&family=Comfortaa:wght@700&family=Fredoka:wght@500&family=Itim&family=Mali:wght@700&family=Marck+Script&family=Neucha&family=Nunito:wght@700&family=Pacifico&family=Pangolin&family=Patrick+Hand&family=Press+Start+2P&family=Quicksand:wght@700&family=Russo+One&family=Varela+Round&display=swap" rel="stylesheet">
     <style>
         body { margin: 0; padding: 0; width: 100vw; height: 100vh; overflow: hidden; background: #1a1a2e; -webkit-user-select: none; user-select: none; color: white; transition: font-family 0.3s, background 0.5s; perspective: 1000px; background-size: cover; background-position: center; background-repeat: no-repeat; background-attachment: fixed;}
         button, input, textarea, .word-card, .nav-dot, .gap, .sentence-block { font-family: inherit; }
@@ -69,16 +69,16 @@
         .shop-icon { font-size: 40px; height: 50px; display: flex; align-items: center; justify-content: center; }
         .shop-icon img { max-width: 100%; max-height: 100%; object-fit: contain; border-radius: 10px;}
 
-        /* МАСКОТ И ПАСХАЛКИ (УМЕНЬШЕНО И СДВИНУТО В УГОЛ) */
-        #mascot { position: fixed; bottom: 10px; right: 10px; font-size: 130px; z-index: 9500; transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275); filter: drop-shadow(0 10px 15px rgba(0,0,0,0.5)); display: none; pointer-events: none;}
-        #mascot img { width: 180px; height: 180px; object-fit: contain; border-radius: 20px; }
-        #prev-mascot img { width: 150px; height: 150px; object-fit: contain; border-radius: 20px; }
+        /* МАСКОТ И ПАСХАЛКИ (УВЕЛИЧЕНО) */
+        #mascot { position: fixed; bottom: 20px; right: 30px; font-size: 250px; z-index: 9500; transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275); filter: drop-shadow(0 15px 20px rgba(0,0,0,0.5)); display: none; pointer-events: none;}
+        #mascot img { width: 350px; height: 350px; object-fit: contain; border-radius: 30px; }
+        #prev-mascot img { width: 250px; height: 250px; object-fit: contain; border-radius: 20px; }
         .mascot-idle { animation: mascotBreathe 3s infinite ease-in-out; }
         .mascot-happy { animation: mascotJump 0.5s ease; }
-        .mascot-sad { animation: shake 0.4s ease; filter: drop-shadow(0 0 20px red) !important; }
-        .mascot-combo { animation: mascotSpin 0.6s ease; filter: drop-shadow(0 0 30px gold) !important; }
-        @keyframes mascotBreathe { 0%, 100% { transform: translateY(0) scale(1); } 50% { transform: translateY(-10px) scale(1.05); } }
-        @keyframes mascotJump { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-50px) scale(1.1); } }
+        .mascot-sad { animation: shake 0.4s ease; filter: drop-shadow(0 0 30px red) !important; }
+        .mascot-combo { animation: mascotSpin 0.6s ease; filter: drop-shadow(0 0 40px gold) !important; }
+        @keyframes mascotBreathe { 0%, 100% { transform: translateY(0) scale(1); } 50% { transform: translateY(-15px) scale(1.05); } }
+        @keyframes mascotJump { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-80px) scale(1.1); } }
         @keyframes mascotSpin { 0% { transform: rotate(0deg) scale(1); } 50% { transform: rotate(180deg) scale(1.3); } 100% { transform: rotate(360deg) scale(1); } }
 
         @keyframes floatEgg { 0%, 100% { transform: translateY(0) scale(1) rotate(0deg); } 33% { transform: translateY(-15px) scale(1.1) rotate(15deg); } 66% { transform: translateY(10px) scale(0.9) rotate(-10deg); } }
@@ -112,7 +112,6 @@
         body.theme-sonic .gap.drag-over { border-color: #fff !important; box-shadow: 0 0 30px #fff !important; }
         body.theme-sonic .play-audio-btn, body.theme-sonic .tf-btn { background: #FFCC00 !important; color: #000 !important; border: 4px solid #fff !important; box-shadow: 0 0 20px #FFCC00 !important; font-weight: 900 !important;}
         body.theme-sonic .memory-back, body.theme-sonic .maze-cell.active, body.theme-sonic .gap.filled, body.theme-sonic .nav-dot.done { background: #0050ff !important; border-color: #FFCC00 !important; color: #fff !important;}
-
 
         /* КОМБО И ПЕРЕХОДЫ */
         #combo-text { position: fixed; top: 30%; left: 50%; transform: translate(-50%, -50%) scale(0); font-size: 60px; font-weight: bold; color: #FFD700; text-shadow: 0 0 30px #FF8C00, 2px 2px 0px #000; z-index: 9000; pointer-events: none; transition: 0.3s; opacity: 0; }
@@ -257,6 +256,38 @@
     </div>
 </div>
 
+<div id="cert-designer-modal" style="display:none; position:fixed; inset:0; z-index:99999; background:rgba(0,0,0,0.95); padding:20px; overflow-y:auto; text-align:center;">
+    <h2 style="color:gold;">НАСТРОЙКА СЕРТИФИКАТА</h2>
+    <div style="margin-bottom:15px;">
+        <label style="color:white; display:inline-block; margin-right:10px;">ВЫБЕРИТЕ ФОН:</label>
+        <select id="cert-bg-select" style="width:300px; padding:10px; font-size:14px; border-radius:10px;" onchange="changeCertBg()">
+            <option value="https://img.genially.com/66f3a31bcd1a12001568ab85/567c4631-8fc0-4698-9b4e-eebe1cb6c0eb.png">Вариант 1 (Снежные Елки)</option>
+            <option value="https://img.genially.com/66f3a31bcd1a12001568ab85/cdb1419d-63ef-4d0d-8813-c27d301391a0.png">Вариант 2 (Зимние Авто)</option>
+            <option value="https://img.genially.com/66f3a31bcd1a12001568ab85/6558ae87-66d3-44bc-bf3e-37c88cc62d2d.png">Вариант 3 (Неоновый лес)</option>
+            <option value="https://img.genially.com/66f3a31bcd1a12001568ab85/edc200c2-ec00-4629-b157-5dd392248206.png">Вариант 4 (Зимний Поезд)</option>
+            <option value="https://img.genially.com/66f3a31bcd1a12001568ab85/dd86f85e-a7ec-4032-9bc2-337e958fe7db.png">Вариант 5 (Замок и Совы)</option>
+        </select>
+    </div>
+    <div style="color:#aaa; font-size:16px; margin-bottom:15px;">Перетащите красную рамку за ВЕРХНЮЮ плашку и измените ее размер за ПРАВЫЙ НИЖНИЙ уголок.</div>
+
+    <div id="cert-preview-wrap" style="position:relative; width:100%; max-width:800px; background:#222; margin:0 auto 20px auto; border:3px solid #00f2ff; background-size:100% 100%; box-shadow:0 10px 30px rgba(0,0,0,0.8); aspect-ratio: 16/9;">
+        <div id="cert-text-box" style="position:absolute; width:40%; height:40%; left:30%; top:30%; border:3px dashed #ff4757; resize:both; overflow:hidden; background:rgba(255,255,255,0.2); min-width:100px; min-height:60px;">
+            <div id="cert-drag-handle" style="position:absolute; top:0; left:0; width:100%; height:25px; background:rgba(255,71,87,0.8); cursor:move; color:white; font-size:12px; font-weight:bold; display:flex; align-items:center; justify-content:center; user-select:none; z-index:2;">✥ ТЯНИ</div>
+            <div style="position:absolute; top:0; left:0; width:100%; height:100%; pointer-events:none; padding:10px; color:#333; display:flex; flex-direction:column; justify-content:center; align-items:center; text-shadow:1px 1px 0 #fff, -1px -1px 0 #fff, 1px -1px 0 #fff, -1px 1px 0 #fff; line-height: 1.2; box-sizing:border-box; text-align:center;">
+                <b style="font-size: clamp(14px, 3vw, 24px);">Имя Ученика</b>
+                <div style="font-size: clamp(10px, 1.5vw, 16px); margin-top:5px;">
+                    Уровней: 15<br>Время: 120 сек<br>Ошибок: 0
+                </div>
+            </div>
+            <div style="position:absolute; bottom:0; right:0; width:15px; height:15px; background:#ff4757; pointer-events:none; z-index:2; clip-path: polygon(100% 0, 100% 100%, 0 100%);"></div>
+        </div>
+    </div>
+    <div style="display:flex; justify-content:center; gap:20px;">
+        <button class="action-btn" style="background:#2ed573; width:200px; font-size:18px;" onclick="saveCertConfig()">💾 СОХРАНИТЬ</button>
+        <button class="action-btn" style="background:#555; width:200px; font-size:18px;" onclick="closeCertDesigner()">ОТМЕНА</button>
+    </div>
+</div>
+
 <div id="top-ui-left">
     <div id="shop-btn" onclick="openShop()">🛒 Магазин</div>
     <div id="coin-ui">💰 <span id="coin-val">0</span></div>
@@ -292,8 +323,26 @@
 
 <div id="panel">
     <h3 style="color: #00f2ff; text-align: center; margin-top: 0; font-size: 16px;">Конструктор Текстов (15 Уровней)</h3>
+    <button class="action-btn" style="background: #FF9800; margin-bottom: 15px;" onclick="openCertDesigner()">⚙️ НАСТРОИТЬ СЕРТИФИКАТ</button>
     <div class="settings-grid">
-        <label>ШРИФТ: <select id="game-font" onchange="update()"><option value="'Comfortaa', sans-serif">Мягкий</option><option value="'Comic Neue', cursive">Детский</option><option value="'Nunito', sans-serif">Круглый</option><option value="'Balsamiq Sans', cursive">Маркер</option><option value="'Fredoka', sans-serif">Плотный</option><option value="'Chewy', cursive">Веселый</option></select></label>
+        <label>ШРИФТ: <select id="game-font" onchange="update()">
+            <option value="'Comfortaa', sans-serif">Мягкий (Comfortaa)</option>
+            <option value="'Comic Neue', cursive">Детский (Comic Neue)</option>
+            <option value="'Nunito', sans-serif">Круглый (Nunito)</option>
+            <option value="'Balsamiq Sans', cursive">Маркер (Balsamiq)</option>
+            <option value="'Fredoka', sans-serif">Плотный (Fredoka)</option>
+            <option value="'Chewy', cursive">Веселый (Chewy)</option>
+            <option value="'Acme', sans-serif">Мультяшный (Acme)</option>
+            <option value="'Amatic SC', cursive">Карандаш (Amatic SC)</option>
+            <option value="'Caveat', cursive">Ручка (Caveat)</option>
+            <option value="'Mali', cursive">Школьный (Mali)</option>
+            <option value="'Marck Script', cursive">Каллиграфия (Marck Script)</option>
+            <option value="'Neucha', cursive">Небрежный (Neucha)</option>
+            <option value="'Pacifico', cursive">Летний (Pacifico)</option>
+            <option value="'Pangolin', cursive">Игровой (Pangolin)</option>
+            <option value="'Press Start 2P', cursive">Ретро 8-bit (Press Start 2P)</option>
+            <option value="'Russo One', sans-serif">Мощный (Russo One)</option>
+        </select></label>
         
         <label>ИКОНКА: <select id="prog-icon" onchange="update()">
             <option value="🚀">Ракета 🚀</option><option value="⭐">Звезда ⭐</option><option value="💖">Сердце 💖</option>
@@ -438,7 +487,8 @@
         progIcon: '🚀', bgEffect: 'none', trailEffect: 'none',
         mascotType: '👾', mascotUrl: '',
         colors: { bg: '#1a1a2e', card: '#9C27B0', text: '#ffffff', accent: '#00f2ff' },
-        levels: Array(15).fill(true), timer: 0
+        levels: Array(15).fill(true), timer: 0,
+        certConfig: null
     };
     let isGame = false, mainAudio = new Audio(), audioCtx = null;
     let sentences = [], currentSentenceIdx = 0, targetWords = [], selectedWords = [];
@@ -452,7 +502,6 @@
     let currentLevel = 0, comboCount = 0;
     const secret = "NDc1NTE3NTA="; // 47551750
 
-    // МАГАЗИН И ГЕЙМИФИКАЦИЯ
     let coins = 0, easterEggsFound = 0, activeLevelsCount = 0;
     let collectedEggs = new Set(); 
     let baseShopItems = [
@@ -474,6 +523,72 @@
 
     if ('speechSynthesis' in window) { let loadV = () => { synthVoices = window.speechSynthesis.getVoices(); }; loadV(); window.speechSynthesis.onvoiceschanged = loadV; }
     mainAudio.onended = () => resetAudioUI();
+
+    // ---------------- ЛОГИКА СЕРТИФИКАТА ИСПРАВЛЕННАЯ ----------------
+    let cBox, cHandle, cWrap;
+    let isCDrag = false, cStartX, cStartY, cStartLeft, cStartTop;
+
+    function initCertDesigner() {
+        cBox = document.getElementById('cert-text-box');
+        cHandle = document.getElementById('cert-drag-handle');
+        cWrap = document.getElementById('cert-preview-wrap');
+
+        cHandle.onpointerdown = (e) => {
+            e.preventDefault();
+            isCDrag = true;
+            cStartX = e.clientX; cStartY = e.clientY;
+            cStartLeft = cBox.offsetLeft;
+            cStartTop = cBox.offsetTop;
+        };
+        window.addEventListener('pointermove', (e) => {
+            if(!isCDrag) return;
+            cBox.style.left = (cStartLeft + e.clientX - cStartX) + 'px';
+            cBox.style.top = (cStartTop + e.clientY - cStartY) + 'px';
+        });
+        window.addEventListener('pointerup', () => isCDrag = false);
+    }
+
+    function openCertDesigner() {
+        document.getElementById('cert-designer-modal').style.display = 'flex';
+        document.getElementById('cert-text-box').style.fontFamily = state.font;
+        if(state.certConfig && state.certConfig.bg) {
+            document.getElementById('cert-bg-select').value = state.certConfig.bg;
+            cBox.style.left = (state.certConfig.x * 100) + '%';
+            cBox.style.top = (state.certConfig.y * 100) + '%';
+            cBox.style.width = (state.certConfig.w * 100) + '%';
+            cBox.style.height = (state.certConfig.h * 100) + '%';
+        }
+        changeCertBg();
+    }
+
+    function changeCertBg() {
+        let bg = document.getElementById('cert-bg-select').value;
+        let wrap = document.getElementById('cert-preview-wrap');
+        wrap.style.backgroundImage = `url('${bg}')`;
+        
+        // Магия! Контейнер теперь принимает реальные пропорции картинки
+        let img = new Image();
+        img.onload = function() {
+            wrap.style.aspectRatio = img.width + " / " + img.height;
+        };
+        img.src = bg;
+    }
+
+    function closeCertDesigner() {
+        document.getElementById('cert-designer-modal').style.display = 'none';
+    }
+
+    function saveCertConfig() {
+        state.certConfig = {
+            bg: document.getElementById('cert-bg-select').value,
+            x: cBox.offsetLeft / cWrap.offsetWidth,
+            y: cBox.offsetTop / cWrap.offsetHeight,
+            w: cBox.offsetWidth / cWrap.offsetWidth,
+            h: cBox.offsetHeight / cWrap.offsetHeight
+        };
+        closeCertDesigner();
+        update();
+    }
 
     // ---------------- ДВИЖОК ЭФФЕКТОВ ----------------
     const bgCvs = document.getElementById('bg-canvas'), bgCtx = bgCvs.getContext('2d');
@@ -773,6 +888,7 @@
     }
 
     function init() {
+        initCertDesigner();
         const data = new URLSearchParams(window.location.search).get('g');
         if(data) {
             state = decodeState(data); isGame = true; activeLevelsCount = state.levels.filter(v=>v).length;
@@ -968,15 +1084,95 @@
     function finishGame() { hideAllLevels(); if(mainTimerInterval) clearInterval(mainTimerInterval); document.getElementById('top-progress').style.display = 'none'; document.getElementById('level-nav').style.display = 'none'; document.getElementById('timer-ui').style.display = 'none'; document.getElementById('top-ui-left').style.display = 'none'; document.getElementById('top-ui-right').style.display = 'none'; document.getElementById('mascot').style.display = 'none'; document.getElementById('easter-egg').style.display = 'none'; document.getElementById('cert-screen').style.display = 'flex'; playSfx('level-up'); }
     
     function generateCert() {
-        playSfx('victory'); let name = document.getElementById('cert-name').value || 'Герой'; let c = document.createElement('canvas'); c.width = 800; c.height = 600; let ctx = c.getContext('2d');
-        let grd = ctx.createLinearGradient(0,0,800,600); grd.addColorStop(0,"#FFF8DC"); grd.addColorStop(1,"#FFD700"); ctx.fillStyle = grd; ctx.fillRect(0,0,800,600);
-        ctx.lineWidth = 15; ctx.strokeStyle = "#DAA520"; ctx.strokeRect(20,20,760,560); ctx.lineWidth = 4; ctx.strokeStyle = "#fff"; ctx.strokeRect(30,30,740,540); ctx.fillStyle = '#000'; ctx.textAlign = 'center';
-        ctx.font = 'bold 50px sans-serif'; ctx.fillText('ЗОЛОТОЙ СЕРТИФИКАТ', 400, 120); ctx.font = '30px sans-serif'; ctx.fillText('Вручается за успешное прохождение игры', 400, 180);
-        ctx.font = 'bold 60px cursive, sans-serif'; ctx.fillStyle = '#E91E63'; ctx.fillText(name, 400, 270); ctx.fillStyle = '#000'; ctx.font = '24px sans-serif'; 
-        ctx.fillText('🏆 Пройденные уровни: ' + activeLevelsCount, 400, 350); ctx.fillText('⏱️ Время прохождения: ' + totalTimeElapsed + ' сек', 400, 395); ctx.fillText('🛡️ Количество ошибок: ' + gameErrors, 400, 440); ctx.fillText('⭐ Найдено секретов: ' + easterEggsFound + ' из ' + activeLevelsCount, 400, 485);
-        if(easterEggsFound > 0 && easterEggsFound >= Math.floor(activeLevelsCount * 0.8)) { ctx.save(); ctx.translate(650, 450); ctx.rotate(-20 * Math.PI/180); ctx.fillStyle = 'rgba(255, 0, 0, 0.6)'; ctx.beginPath(); ctx.arc(0, 0, 60, 0, Math.PI*2); ctx.fill(); ctx.strokeStyle = 'rgba(255, 0, 0, 0.8)'; ctx.lineWidth = 5; ctx.beginPath(); ctx.arc(0, 0, 50, 0, Math.PI*2); ctx.stroke(); ctx.fillStyle = '#fff'; ctx.font = 'bold 20px sans-serif'; ctx.fillText('SECRET', 0, -5); ctx.fillText('HUNTER', 0, 20); ctx.restore(); }
-        ctx.font = '20px sans-serif'; ctx.fillStyle = '#555'; ctx.fillText('Дата: ' + new Date().toLocaleDateString(), 400, 540);
-        let dataUrl = c.toDataURL('image/png'); document.getElementById('cert-image').src = dataUrl; document.getElementById('cert-download').href = dataUrl; document.getElementById('cert-form').style.display = 'none'; document.getElementById('cert-img-cont').style.display = 'flex';
+        playSfx('victory');
+        let name = document.getElementById('cert-name').value || 'Герой';
+        let c = document.createElement('canvas');
+        let ctx = c.getContext('2d');
+
+        if (state.certConfig && state.certConfig.bg) {
+            let img = new Image();
+            img.crossOrigin = "Anonymous"; 
+            img.onload = () => {
+                c.width = img.width; // Холст принимает реальный размер картинки!
+                c.height = img.height;
+                ctx.drawImage(img, 0, 0, c.width, c.height);
+                drawCertText(ctx, c, name, state.certConfig);
+                finishCertGen(c);
+            };
+            img.onerror = () => {
+                c.width = 1600; c.height = 900;
+                drawDefaultCert(ctx, c, name);
+                finishCertGen(c);
+            };
+            img.src = state.certConfig.bg;
+        } else {
+            c.width = 1600; c.height = 900;
+            drawDefaultCert(ctx, c, name);
+            finishCertGen(c);
+        }
+    }
+
+    function drawDefaultCert(ctx, c, name) {
+        let grd = ctx.createLinearGradient(0,0,c.width,c.height);
+        grd.addColorStop(0,"#FFF8DC"); grd.addColorStop(1,"#FFD700");
+        ctx.fillStyle = grd; ctx.fillRect(0,0,c.width,c.height);
+        ctx.lineWidth = 15; ctx.strokeStyle = "#DAA520"; ctx.strokeRect(30,30,c.width-60,c.height-60);
+        ctx.lineWidth = 4; ctx.strokeStyle = "#fff"; ctx.strokeRect(45,45,c.width-90,c.height-90);
+        
+        ctx.fillStyle = '#000'; ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
+        let fontFam = state.font.split(',')[0].replace(/'/g, "");
+        ctx.font = 'bold 60px ' + fontFam; ctx.fillText('ЗОЛОТОЙ СЕРТИФИКАТ', c.width/2, 120);
+        ctx.font = '40px ' + fontFam; ctx.fillText('Вручается за успешное прохождение игры', c.width/2, 200);
+        
+        drawCertText(ctx, c, name, {x: 0.1, y: 0.35, w: 0.8, h: 0.5});
+    }
+
+    // ИДЕАЛЬНОЕ ВЫРАВНИВАНИЕ ТЕКСТА ВНУТРИ ВЫДЕЛЕННОЙ РАМКИ
+    function drawCertText(ctx, c, name, boxConf) {
+        let bx = boxConf.x * c.width;
+        let by = boxConf.y * c.height;
+        let bw = boxConf.w * c.width;
+        let bh = boxConf.h * c.height;
+        let cx = bx + bw/2;
+        let cy = by + bh/2; 
+
+        ctx.textAlign = 'center';
+        ctx.textBaseline = 'middle';
+        ctx.lineJoin = 'round'; // Мягкие контуры обводки текста
+
+        let fontFam = state.font.split(',')[0].replace(/'/g, "");
+        let fSize = Math.min(bh / 8, bw / 15); // Защита, чтобы текст не был слишком гигантским
+
+        let lines = [
+            { text: name, size: fSize * 1.8, color: '#E91E63', isBold: true },
+            { text: '🏆 Уровней: ' + activeLevelsCount, size: fSize, color: '#333', isBold: true },
+            { text: '⏱️ Время: ' + totalTimeElapsed + ' сек', size: fSize, color: '#333', isBold: true },
+            { text: '🛡️ Ошибок: ' + gameErrors, size: fSize, color: '#333', isBold: true },
+            { text: '⭐ Секретов: ' + easterEggsFound + ' из ' + activeLevelsCount, size: fSize, color: '#333', isBold: true },
+            { text: 'Дата: ' + new Date().toLocaleDateString(), size: fSize * 0.7, color: '#555', isBold: false }
+        ];
+
+        // Математически высчитываем общую высоту блока текста, чтобы выровнять его ровно по центру рамки по вертикали
+        let totalH = lines.reduce((sum, line) => sum + (line.size * 1.3), 0);
+        let curY = cy - (totalH / 2) + (lines[0].size / 2);
+
+        lines.forEach(line => {
+            ctx.font = (line.isBold ? 'bold ' : '') + line.size + 'px ' + fontFam;
+            ctx.lineWidth = Math.max(3, line.size / 6);
+            ctx.strokeStyle = '#fff'; // Белая обводка, чтобы читалось на любом фоне!
+            ctx.strokeText(line.text, cx, curY);
+            ctx.fillStyle = line.color;
+            ctx.fillText(line.text, cx, curY);
+            curY += line.size * 1.3;
+        });
+    }
+
+    function finishCertGen(c) {
+        let dataUrl = c.toDataURL('image/png');
+        document.getElementById('cert-image').src = dataUrl;
+        document.getElementById('cert-download').href = dataUrl;
+        document.getElementById('cert-form').style.display = 'none';
+        document.getElementById('cert-img-cont').style.display = 'flex';
     }
 
     init();
